@@ -7,7 +7,7 @@ class GameApp:
     def __init__(self):
         self._page: ft.Page | None = None
         self._menu_screen: MenuScreen | None = None
-        self._game_screen: GamePresenter | None = None
+        self._game_presenter: GamePresenter | None = None
 
     def build(self, page: ft.Page):
         self._page = page
@@ -17,7 +17,7 @@ class GameApp:
         self._page.window.width = 480
         self._page.window.height = 720
         self._menu_screen = MenuScreen(on_mode_selected=self._start_game)
-        self._game_screen = GamePresenter(
+        self._game_presenter = GamePresenter(
             page=self._page,
             on_back_to_menu=self._show_menu,
         )
@@ -31,5 +31,5 @@ class GameApp:
 
     def _start_game(self, mode: str):
         self._page.controls.clear()
-        self._page.add(self._game_screen.build(mode))
+        self._page.add(self._game_presenter.build(mode))
         self._page.update()

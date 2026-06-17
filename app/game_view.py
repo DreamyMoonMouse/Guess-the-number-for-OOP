@@ -83,7 +83,7 @@ class GameView:
         self.clear_input()
 
     def show_game_over(self, message):
-        self._dialog.content = ft.Text(message)
+        self._dialog.content.value = message
         self._page.show_dialog(self._dialog)
         self._page.update()
 

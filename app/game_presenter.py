@@ -20,6 +20,7 @@ class GamePresenter:
             self._game = ClassicMode()
         else:
             self._game = HardMode()
+
         return self._view.build(
             title=self._game.get_display_name(),
             max_number=self._game.get_max_number(),

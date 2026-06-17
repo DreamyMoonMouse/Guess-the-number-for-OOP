@@ -13,28 +13,28 @@ class GameMode(ABC):
         self._max_number: int = max_number
         self.generate_number()
 
-    @abstractmethod
-    def generate_number(self) -> None:
-        ...
+    def generate_number(self):
+        self._secret_number = self._roll()
+        self._attempts = 0
 
     @abstractmethod
-    def check_guess(self, guess: int) -> str:
+    def check_guess(self, guess: int):
         ...
 
     @abstractmethod
     def get_display_name(self):
         ...
 
-    def get_attempts(self) -> int:
+    def get_attempts(self):
         return self._attempts
 
-    def get_max_number(self) -> int:
+    def get_max_number(self):
         return self._max_number
 
-    def get_secret(self)-> int:
+    def get_secret(self):
         return self._secret_number
 
-    def _roll(self) -> int:
+    def _roll(self):
         return random.randint(1, self._max_number)
 
     def is_in_range(self, number):

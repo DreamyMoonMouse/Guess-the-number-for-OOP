@@ -1,1 +1,1 @@
-from app.game_app import GameApp
+from .game_app import GameApp
