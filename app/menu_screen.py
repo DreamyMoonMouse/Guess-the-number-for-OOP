@@ -1,5 +1,6 @@
 import flet as ft
 from typing import Callable
+from game import ClassicMode, HardMode
 
 class MenuScreen:
 
@@ -18,12 +19,12 @@ class MenuScreen:
                         weight=ft.FontWeight.BOLD,
                     ),
                     ft.Text("Выбери режим игры:", size=18),
-                    ft.Text("без лимита", size=16),
+                    ft.Text(f"без лимита, до {ClassicMode.MAX_NUMBER}", size=16),
                     ft.Button(
                         content=ft.Text("Classic"),
                         on_click=lambda e: self._on_mode_selected("classic"),
                     ),
-                    ft.Text("7 попыток, до 333", size=16),
+                    ft.Text(f"{HardMode.MAX_ATTEMPTS} попыток, до {HardMode.MAX_NUMBER}", size=16),
                     ft.Button(
                         content=ft.Text("Hard"),
                         on_click=lambda e: self._on_mode_selected("hard"),
